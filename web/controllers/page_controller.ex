@@ -5,7 +5,7 @@ defmodule Finaldraft.PageController do
     render conn, "index.html"
   end
 
-  def show(conn, params) do
-    render conn, "index.html", params: params
+  def api_call(conn, params) do
+    
   end
 end
