@@ -6,6 +6,7 @@ defmodule Finaldraft.PageController do
   end
 
   def api_call(conn, params) do
-    
+    case Finaldraft.fetch(params) do
+     
   end
 end
