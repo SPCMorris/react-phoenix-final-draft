@@ -20,4 +20,11 @@ import "phoenix_html"
 
 // import socket from "./socket"
 
-import "./public/index"
+import ReactDOM from 'react-dom';
+import React, { Component } from 'react';
+
+import Application from "./public/components/application";
+
+ReactDOM.render(
+  <Application />, document.getElementById("react-app")
+)
