@@ -11,7 +11,7 @@ class SearchBar extends Component {
     event.preventDefault();
     this.setState({ term: "" });
     console.log(this.state.term)
-    history.pushState(null, null, "search?term=" + this.state.term);
+    history.pushState(null, null, "search?term=" + this.state.term.replace(/\s/g, ''));
   }
 
   render() {
