@@ -17,7 +17,7 @@ defmodule Finaldraft.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Finaldraft, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,:httpoison]
     ]
   end
 
@@ -35,7 +35,8 @@ defmodule Finaldraft.Mixfile do
      {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}
+     {:cowboy, "~> 1.0"},
+     {:httpoison, "~> 0.9.0"}
    ]
   end
 end
