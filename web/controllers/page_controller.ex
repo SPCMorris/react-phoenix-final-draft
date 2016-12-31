@@ -2,19 +2,18 @@ defmodule Finaldraft.PageController do
   use Finaldraft.Web, :controller
 
   def index(conn, _params) do
-    render conn, "index.html"
+    conn
+      |> assign(:response, "If it all works your data will render here")
+      |> render "index.html"
   end
 
   def api_call(conn, %{"term" => term}) do
-    case HTTPoison.get!("https://maps.googleapis.com/maps/api/geocode/json?address=" <> term <> "&sensor=true") do
-    {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-    IO.puts body
-    {:ok, %HTTPoison.Response{status_code: 404}} ->
-    IO.puts "Sorry. Nothing was found."
-    {:error, %HTTPoison.Error{reason: reason}} ->
-    IO.inspect reason
-    end  
+    response = HTTPoison.get!("https://maps.googleapis.com/maps/api/geocode/json?address=" <> term <> "&sensor=true") 
+
+    lat = "test"
+
+    conn 
+      |> assign(:response, lat)
+      |> render "index.html"
   end
 end
-
-
