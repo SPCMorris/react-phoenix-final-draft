@@ -10,10 +10,8 @@ defmodule Finaldraft.PageController do
   def api_call(conn, %{"term" => term}) do
     response = HTTPoison.get!("https://maps.googleapis.com/maps/api/geocode/json?address=" <> term <> "&sensor=true") 
 
-    lat = "test"
-
     conn 
-      |> assign(:response, lat)
+      |> assign(:response, response.body)
       |> render "index.html"
   end
 end
