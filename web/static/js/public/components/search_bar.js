@@ -12,6 +12,7 @@ class SearchBar extends Component {
     this.setState({ term: "" });
     console.log(this.state.term)
     history.pushState(null, null, "search?term=" + this.state.term.replace(/\s/g, ''));
+    location.reload();
   }
 
   render() {
